@@ -7,7 +7,25 @@ requires-python = ">=3.12"
 dependencies = [
     "langchain>=0.3.25",
     "langsmith>=0.3.45",
+    "poethepoet>=0.35.0",
     "python-decouple>=3.8",
     "ruff>=0.11.13",
     "streamlit>=1.45.1",
+    "ty>=0.0.1a10",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=6.2.1",
+]
+
+[project.scripts]
+chatbot     = "src.ai_chatbot:main"
+
+[tool.poe.tasks]
+test        = "pytest"
+cov         = "pytest --cov=src --cov-report=term-missing"
+srun        = "uv run streamlit run main.py"
+lint        = "ruff check ."
+format      = "ruff format ."
+tc          = "ty check ."
