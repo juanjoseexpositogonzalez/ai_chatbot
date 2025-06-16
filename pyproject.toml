@@ -1,0 +1,13 @@
+[project]
+name = "ai-chatbot"
+version = "0.1.0"
+description = "Simple chatbot with streamlit"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=0.3.25",
+    "langsmith>=0.3.45",
+    "python-decouple>=3.8",
+    "ruff>=0.11.13",
+    "streamlit>=1.45.1",
+]
