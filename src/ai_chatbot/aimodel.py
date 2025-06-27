@@ -9,10 +9,15 @@ from langchain_groq import ChatGroq
 def environment_setup():
     """Prepares the environment"""
 
-    os.environ["LANGCHAIN_TRACING_V2"] = config("LANGCHAIN_TRACING_V2")
-    os.environ["LANGCHAIN_API_KEY"] = config("LANGSMITH_API_KEY")
-    os.environ["GROQ_API_KEY"] = config("GROQ_API_KEY")
-    os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
+    os.environ["LANGCHAIN_TRACING_V2"] = config("LANGCHAIN_TRACING_V2")  # type: ignore
+    os.environ["LANGCHAIN_PROJECT"] = config("LANGCHAIN_PROJECT")  # type: ignore
+    os.environ["LANGCHAIN_ENDPOINT"] = config("LANGCHAIN_ENDPOINT")  # type: ignore
+    os.environ["LANGCHAIN_API_KEY"] = config("LANGCHAIN_API_KEY")  # type: ignore
+    os.environ["LANGSMITH_API_KEY"] = config("LANGSMITH_API_KEY")  # type: ignore
+    os.environ["LANGCHAIN_TRACING"] = config("LANGCHAIN_TRACING")  # type: ignore
+    os.environ["LANGCHAIN_API_KEY"] = config("LANGSMITH_API_KEY")  # type: ignore
+    os.environ["GROQ_API_KEY"] = config("GROQ_API_KEY")  # type: ignore
+    os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")  # type: ignore
 
 
 def generate_response(user_message: str) -> str:
@@ -31,7 +36,7 @@ def generate_response(user_message: str) -> str:
     chat_prompt = ChatPromptTemplate.from_template(prompt)
 
     # Initialize the Groq model
-    groq_model = ChatGroq(model=config("LLAMA_MODEL"))
+    groq_model = ChatGroq(model=config("LLAMA_MODEL"))  # type: ignore
 
     output_parser = StrOutputParser()
 
