@@ -5,7 +5,7 @@ credentials:
       email: jjeg1979@gmail.com
       password: $2b$12$IPkdAklimRxZVY20XNDnwujK9VzTypC3jUHIwhNW6Cuhn/ygbfjVC
     code_clinic:
-      name: Code Clinic
+      name: Clinic
       password: $2b$12$LJsP6hcFI./qhILLSlfEZOyOVa.fJtTj/bhzlrSVA/XSnoAXZsu/i
 
 cookie:
