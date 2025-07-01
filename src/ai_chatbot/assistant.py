@@ -33,6 +33,7 @@ class LLMModel(StrEnum):
     LLAMA_3_VERSATILE = "llama-3.3-70b-versatile"
     GEMINI_20_FLASH = "gemini-2.0-flash"
     GEMINI_20_FLASH_001 = "gemini-2.0-flash-001"
+    COMMAND_A = "command-a-03-2025"
     COMMAND_R_PLUS = "command-r-plus"
     GEMMA_9B_IT = "gemma2-9b-it"
     DEEPSEEK = "deepseek-r1-distill-llama-70b"

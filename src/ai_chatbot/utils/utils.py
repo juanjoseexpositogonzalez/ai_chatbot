@@ -20,6 +20,7 @@ def prepare_environment() -> None:
     os.environ["LANGSMITH_API_KEY"] = config("LANGSMITH_API_KEY")  # type: ignore[assignment]
     os.environ["LANGCHAIN_TRACING_V2"] = config("LANGCHAIN_TRACING_V2")  # type: ignore[assignment]
     os.environ["LANGCHAIN_PROJECT"] = config("LANGCHAIN_PROJECT")  # type: ignore[assignment]
+    os.environ["CO_API_KEY"] = config("CO_API_KEY")  # type: ignore[assignment]
 
 
 def return_provider_from_model(model: LLMModel) -> LLMProvider:
@@ -62,7 +63,7 @@ def return_provider_from_model(model: LLMModel) -> LLMProvider:
             return LLMProvider.GOOGLE_GENAI
         case LLMModel.GEMINI_20_FLASH_001:
             return LLMProvider.GOOGLE_VERTEX
-        case LLMModel.COMMAND_R_PLUS:
+        case LLMModel.COMMAND_A | LLMModel.COMMAND_R_PLUS:
             return LLMProvider.COHERE
         case _:
             raise ValueError(f"Unsupported model: {model}")
