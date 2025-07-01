@@ -6,12 +6,17 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "langchain>=0.3.25",
+    "langchain-anthropic>=0.3.16",
+    "langchain-cohere>=0.4.4",
+    "langchain-google-vertexai>=2.0.27",
     "langchain-groq>=0.3.2",
+    "langchain-openai>=0.3.27",
     "langsmith>=0.3.45",
     "poethepoet>=0.35.0",
     "python-decouple>=3.8",
     "ruff>=0.11.13",
     "streamlit>=1.45.1",
+    "streamlit-authenticator>=0.4.2",
     "ty>=0.0.1a10",
     "watchdog>=6.0.0",
 ]
@@ -25,7 +30,7 @@ dev = [
 chatbot     = "src.ai_chatbot:main"
 
 [tool.poe.tasks]
-test        = "pytest"
+test        = "pytest -vv"
 cov         = "pytest --cov=src --cov-report=term-missing"
 run         = "uv run -m src.ai_chatbot"
 srun        = "uv run streamlit run src/main.py"
