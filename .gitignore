@@ -195,5 +195,5 @@ cython_debug/
 
 **/.vscode/
 **/.pylintrc
-**/config/config.yaml
+# **/config/config.yaml
 **/passwords.py

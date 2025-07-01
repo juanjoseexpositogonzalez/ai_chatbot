@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    juanjo:
+      name: Juanjo
+      email: jjeg1979@gmail.com
+      password: $2b$12$IPkdAklimRxZVY20XNDnwujK9VzTypC3jUHIwhNW6Cuhn/ygbfjVC
+    code_clinic:
+      name: Code Clinic
+      password: $2b$12$LJsP6hcFI./qhILLSlfEZOyOVa.fJtTj/bhzlrSVA/XSnoAXZsu/i
+
+cookie:
+  name: chatbot_auth
+  key: r6KNqraLlsoWNvxa3QfawxIvvlxvebCp
+  expiry_days: 30
+
+preauthorized:
+  emails: []
