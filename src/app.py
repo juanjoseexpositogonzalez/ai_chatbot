@@ -23,14 +23,6 @@ def main():
         model = LLMModel.LLAMA_3_INSTANT
         st.session_state["model_selected"] = model
 
-    # Set the page configuration
-    st.set_page_config(
-        page_title="AI Assistant",
-        page_icon=":robot:",
-        layout="wide",
-        initial_sidebar_state="expanded",
-    )
-
     if "temperature" not in st.session_state:
         st.session_state["temperature"] = 0.7
 

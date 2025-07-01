@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    name1:
+      name:
+      email:
+      password:
+    name2:
+      name:
+      password:
+
+cookie:
+  name:
+  key:
+  expiry_days:
+
+preauthorized:
+  emails: []
