@@ -197,3 +197,4 @@ cython_debug/
 **/.pylintrc
 # **/config/config.yaml
 **/passwords.py
+**/bash.exe.stackdump
