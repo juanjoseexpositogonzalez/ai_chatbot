@@ -1,0 +1,37 @@
+# Evita copiar archivos innecesarios o conflictivos al contenedor
+
+# Entorno virtual local
+.venv/
+
+# Archivos de cache de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos de log
+*.log
+
+# Archivos temporales o de editor
+*.swp
+*.swo
+*.bak
+.DS_Store
+Thumbs.db
+
+# Datos de pruebas
+.coverage
+htmlcov/
+.tox/
+*.log
+*.db
+tests/
+
+# Librerías locales si haces pip install -e .
+*.egg-info/
+.eggs/
+
+# Otros
+*.sqlite3
+.ruff_cache
+.devcontainer

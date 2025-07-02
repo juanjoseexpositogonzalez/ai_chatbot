@@ -1,0 +1,20 @@
+services:
+  sherlock-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile.01_original
+    container_name: sherlock-ai-chatbot
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      - LANGCHAIN_PROJECT=ai_chatbot
+      - LANGCHAIN_TRACING_V2=true
+    volumes:
+      - ./src:/app/src
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./uv.lock:/app/uv.lock
+      - ./.env:/app/.env
+
+    restart: unless-stopped

@@ -198,3 +198,4 @@ cython_debug/
 # **/config/config.yaml
 **/passwords.py
 **/bash.exe.stackdump
+**/.devcontainer
