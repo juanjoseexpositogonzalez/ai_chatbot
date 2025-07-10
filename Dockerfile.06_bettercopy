@@ -1,0 +1,49 @@
+## ----------------------------------------- Builder Stage ----------------------------------------- ##
+FROM python:3.13-slim-bookworm AS builder
+
+# Install system dependencies and upgrade packages to fix vulnerabilities
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    build-essential \
+    curl \
+    ca-certificates \
+    git \
+    && apt-get upgrade -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install UV package manager
+ADD https://astral.sh/uv/install.sh /uv-installer.sh
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+
+# Add uv to PATH
+ENV PATH="/root/.local/bin/:$PATH"
+
+# Desactiva el uso de .venv
+ENV UV_VIRTUALENV_MANAGED=off
+
+# Set working directory
+WORKDIR /app
+
+# Copy project files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies (locked to `pyproject.toml` + `uv.lock`)
+RUN uv sync --locked
+
+## ----------------------------------------- Production Stage ----------------------------------------- ##
+FROM python:3.13-slim-bookworm AS production
+
+# Set working directory
+WORKDIR /app
+
+COPY src ./src
+COPY --from=builder /app/.venv .venv
+
+# Set up environment variables for production
+ENV PATH="/root/.local/bin/:$PATH"
+
+# Expose Streamlit port
+EXPOSE 8501
+
+# Launch Streamlit app
+CMD ["uv", "run", "streamlit", "run", "src/main.py"]
