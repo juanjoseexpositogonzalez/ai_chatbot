@@ -1,5 +1,5 @@
 ## ----------------------------------------- Builder Stage ----------------------------------------- ##
-FROM python:3.13-slim-bookworm AS builder
+FROM python:alpine AS builder
 
 # Install system dependencies and upgrade packages to fix vulnerabilities
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -29,7 +29,7 @@ COPY pyproject.toml ./
 RUN uv sync
 
 ## ----------------------------------------- Production Stage ----------------------------------------- ##
-FROM python:3.13-slim-bookworm AS production
+FROM python:alpine AS production
 
 RUN useradd --create-home appuser
 # Switch to non-root user
