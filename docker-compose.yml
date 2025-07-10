@@ -2,7 +2,7 @@ services:
   sherlock-ai:
     build:
       context: .
-      dockerfile: Dockerfile.01_original
+      dockerfile: Dockerfile.08_optimized_no_root
     container_name: sherlock-ai-chatbot
     ports:
       - "8501:8501"
